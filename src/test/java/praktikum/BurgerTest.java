@@ -50,7 +50,15 @@ public class BurgerTest {
     @Test
     public void testGetReceipt() {
         assertNotNull(burger.getReceipt());
-        assertEquals("test bun", bun.getName());
+    }
+
+    @Test
+    public void testGetReceiptShowBunAndIngredients() {
+        String actualBun = bun.getName();
+        String actualIngredient = burger.ingredients.get(0).getName();
+
+        assertTrue(burger.getReceipt().contains(actualBun));
+        assertTrue(burger.getReceipt().contains(actualIngredient));
     }
 
     @Test
